@@ -1,8 +1,6 @@
+import sqlite3
 from colaborador import Colaborador
 from financas import Financas
-
-colaboradores = []
-contador_matricula = 1
 
 BENEFICIOS_DISPONIVEIS = [
     "Vale Transporte",
@@ -10,6 +8,65 @@ BENEFICIOS_DISPONIVEIS = [
     "Plano de Saúde"
 ]
 
+# -------------------------
+# BANCO DE DADOS
+# -------------------------
+
+def criar_tabela():
+    conn = sqlite3.connect("folha.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS colaboradores (
+            matricula INTEGER PRIMARY KEY,
+            nome TEXT,
+            cargo TEXT,
+            salario REAL,
+            dependentes INTEGER,
+            beneficios TEXT
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+def salvar_colaborador(colaborador):
+    conn = sqlite3.connect("folha.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO colaboradores (matricula, nome, cargo, salario, dependentes, beneficios)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (
+        colaborador.matricula,
+        colaborador.nome,
+        colaborador.cargo,
+        colaborador.salario,
+        colaborador.dependentes,
+        ",".join(colaborador.beneficios)
+    ))
+    conn.commit()
+    conn.close()
+
+def carregar_colaboradores():
+    conn = sqlite3.connect("folha.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM colaboradores")
+    rows = cursor.fetchall()
+    conn.close()
+
+    lista = []
+    for r in rows:
+        lista.append(Colaborador(
+            nome=r[1],
+            cargo=r[2],
+            salario=r[3],
+            matricula=r[0],
+            dependentes=r[4],
+            beneficios=r[5].split(",") if r[5] else []
+        ))
+    return lista
+
+# -------------------------
+# FUNÇÕES DE INTERFACE
+# -------------------------
 
 def escolher_beneficios():
     print("\nEscolha os benefícios (separados por vírgula):")
@@ -20,19 +77,19 @@ def escolher_beneficios():
     beneficios_escolhidos = []
 
     if escolha:
-        try:
-            indices = escolha.split(",")
-            for i in indices:
-                beneficio = BENEFICIOS_DISPONIVEIS[int(i.strip())]
-                beneficios_escolhidos.append(beneficio)
-        except:
-            print("Entrada inválida.")
+        indices = escolha.split(",")
+        for i in indices:
+            i = i.strip()
+            if i.isdigit() and int(i) < len(BENEFICIOS_DISPONIVEIS):
+                beneficios_escolhidos.append(BENEFICIOS_DISPONIVEIS[int(i)])
+            else:
+                print(f"Índice inválido: {i}")
 
     return beneficios_escolhidos
 
-
 def cadastrar():
-    global contador_matricula
+    colaboradores = carregar_colaboradores()
+    contador_matricula = len(colaboradores) + 1
 
     print("\n=== CADASTRO DE COLABORADOR ===")
     nome = input("Nome: ")
@@ -56,14 +113,12 @@ def cadastrar():
         beneficios=beneficios
     )
 
-    colaboradores.append(colaborador)
+    salvar_colaborador(colaborador)
     print(f"Colaborador cadastrado! Matrícula: {contador_matricula}")
-
-    contador_matricula += 1
-
 
 def listar():
     print("\n=== LISTA DE COLABORADORES ===")
+    colaboradores = carregar_colaboradores()
     if not colaboradores:
         print("Nenhum cadastrado.")
         return
@@ -71,8 +126,8 @@ def listar():
     for i, c in enumerate(colaboradores):
         print(f"{i} - {c}")
 
-
 def gerar_holerite():
+    colaboradores = carregar_colaboradores()
     listar()
     if not colaboradores:
         return
@@ -80,15 +135,15 @@ def gerar_holerite():
     try:
         indice = int(input("Digite o número do colaborador: "))
         colaborador = colaboradores[indice]
-    except:
+    except (ValueError, IndexError):
         print("Índice inválido.")
         return
 
     financas = Financas(colaborador)
     print(financas.gerar_holerite())
 
-
 def menu():
+    criar_tabela()  # garante que a tabela existe
     while True:
         print("\n===== SISTEMA DE FOLHA DE PAGAMENTO =====")
         print("1 - Cadastrar colaborador")
@@ -109,7 +164,6 @@ def menu():
             break
         else:
             print("Opção inválida.")
-
 
 if __name__ == "__main__":
     menu()
