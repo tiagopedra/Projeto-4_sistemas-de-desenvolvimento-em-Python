@@ -9,10 +9,6 @@ class Financas:
     def __init__(self, colaborador):
         self.colaborador = colaborador
 
-    # -------------------------
-    # ENCARGOS
-    # -------------------------
-
     def calcular_inss(self):
         salario = self.colaborador.salario
 
@@ -35,18 +31,16 @@ class Financas:
         if base <= 2112:
             return 0
         elif base <= 2826.65:
-            return base * 0.075
+            return base * 0.075 - 158.40
         elif base <= 3751.05:
-            return base * 0.15
+            return base * 0.15 - 370.40
+        elif base <= 4664.68:
+            return base * 0.225 - 651.73
         else:
-            return base * 0.225
+            return base * 0.275 - 884.96
 
     def calcular_fgts(self):
         return self.colaborador.salario * 0.08
-
-    # -------------------------
-    # BENEFÍCIOS
-    # -------------------------
 
     def calcular_total_beneficios(self):
         total = 0
@@ -54,19 +48,11 @@ class Financas:
             total += self.VALOR_BENEFICIOS.get(beneficio, 0)
         return total
 
-    # -------------------------
-    # FÉRIAS
-    # -------------------------
-
     def calcular_ferias(self):
         salario = self.colaborador.salario
         um_terco = salario / 3
         total_ferias = salario + um_terco
         return salario, um_terco, total_ferias
-
-    # -------------------------
-    # SALÁRIO LÍQUIDO
-    # -------------------------
 
     def calcular_salario_liquido(self):
         salario = self.colaborador.salario
@@ -75,10 +61,6 @@ class Financas:
         beneficios = self.calcular_total_beneficios()
 
         return salario - inss - irrf + beneficios
-
-    # -------------------------
-    # HOLERITE
-    # -------------------------
 
     def gerar_holerite(self):
         bruto = self.colaborador.salario
