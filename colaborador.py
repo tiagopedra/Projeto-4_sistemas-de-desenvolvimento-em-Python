@@ -1,10 +1,11 @@
 class Colaborador:
     def __init__(self, nome, cargo, salario, matricula, dependentes=0, beneficios=None):
+        # Garantindo valores válidos
         self.nome = nome
         self.cargo = cargo
-        self.salario = salario
+        self.salario = max(0, salario)  # nunca negativo
         self.matricula = matricula
-        self.dependentes = dependentes
+        self.dependentes = max(0, dependentes)  # nunca negativo
         self.beneficios = beneficios if beneficios else []
 
     def atualizar_dados(self, nome=None, cargo=None, salario=None, dependentes=None, beneficios=None):
@@ -13,11 +14,22 @@ class Colaborador:
         if cargo:
             self.cargo = cargo
         if salario is not None:
-            self.salario = salario
+            self.salario = max(0, salario)
         if dependentes is not None:
-            self.dependentes = dependentes
+            self.dependentes = max(0, dependentes)
         if beneficios is not None:
             self.beneficios = beneficios
+
+    def dados_basicos(self):
+        # Retorna os dados principais do colaborador em formato de dicionário
+        return {
+            "matricula": self.matricula,
+            "nome": self.nome,
+            "cargo": self.cargo,
+            "salario": self.salario,
+            "dependentes": self.dependentes,
+            "beneficios": self.beneficios
+        }
 
     def __str__(self):
         beneficios_str = ", ".join(self.beneficios) if self.beneficios else "Nenhum"
