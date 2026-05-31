@@ -142,28 +142,13 @@ def gerar_holerite():
     financas = Financas(colaborador)
     print(financas.gerar_holerite())
 
-def mostrar_custo_total_empresa():
-    colaboradores = carregar_colaboradores()
-    if not colaboradores:
-        print("Nenhum colaborador cadastrado.")
-        return
-
-    custo_total = 0
-    for c in colaboradores:
-        financas = Financas(c)
-        custo_total += financas.calcular_custo_total_empresa()
-
-    print("\n=== CUSTO TOTAL DA EMPRESA ===")
-    print(f"Custo mensal com colaboradores: R$ {custo_total:.2f}")
-
 def menu():
-    criar_tabela()  # Garante que a tabela existe
+    criar_tabela()  # garante que a tabela existe
     while True:
         print("\n===== SISTEMA DE FOLHA DE PAGAMENTO =====")
         print("1 - Cadastrar colaborador")
         print("2 - Listar colaboradores")
         print("3 - Gerar holerite")
-        print("4 - Mostrar custo total da empresa")
         print("0 - Sair")
 
         opcao = input("Escolha: ")
@@ -174,8 +159,6 @@ def menu():
             listar()
         elif opcao == "3":
             gerar_holerite()
-        elif opcao == "4":
-            mostrar_custo_total_empresa()
         elif opcao == "0":
             print("Encerrando...")
             break
