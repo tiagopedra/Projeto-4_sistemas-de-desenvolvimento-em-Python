@@ -62,6 +62,15 @@ class Financas:
 
         return salario - inss - irrf + beneficios
 
+    def calcular_custo_total_empresa(self):
+        """Retorna o custo total do colaborador para a empresa"""
+        salario = self.colaborador.salario
+        fgts = self.calcular_fgts()
+        beneficios = self.calcular_total_beneficios()
+
+        # Aqui podemos expandir futuramente para incluir 13º, férias proporcionais etc.
+        return salario + fgts + beneficios
+
     def gerar_holerite(self):
         bruto = self.colaborador.salario
         inss = self.calcular_inss()
@@ -69,6 +78,7 @@ class Financas:
         fgts = self.calcular_fgts()
         beneficios = self.calcular_total_beneficios()
         liquido = self.calcular_salario_liquido()
+        custo_total = self.calcular_custo_total_empresa()
 
         salario_ferias, um_terco, total_ferias = self.calcular_ferias()
 
@@ -100,5 +110,6 @@ Total Férias: R$ {total_ferias:.2f}
 
 ===================================
 Salário Líquido: R$ {liquido:.2f}
+Custo Total para Empresa: R$ {custo_total:.2f}
 ===================================
 """
