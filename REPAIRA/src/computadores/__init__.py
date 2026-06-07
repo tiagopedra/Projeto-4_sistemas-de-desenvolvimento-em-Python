@@ -1,0 +1,4 @@
+from .computadores_repo import carregar_computadores, salvar_computadores, gerar_novo_id, buscar_computador_id
+from .computadores_cadastro import cadastrar_computador
+from .computadores_consulta import listar_computadores, listar_computadores_resumido, exibir_detalhes_computador
+from .computadores_status import atualizar_status_computador, deletar_computador
