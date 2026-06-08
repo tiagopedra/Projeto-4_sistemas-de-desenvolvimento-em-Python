@@ -290,7 +290,7 @@ SISTEMA DE HELP DESK
 
 ## Tecnologias Utilizadas
 
-- **Linguagem**: Python 3.x
+- **Linguagem**: Python 3.10 ou superior
 - **Paradigma**: Orientação a Objetos
 - **Banco de Dados**: SQLite
 - **Biblioteca utilizada**: `sqlite3`
