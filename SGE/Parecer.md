@@ -1,0 +1,9 @@
+Pessoal, no geral eu entendo que vocês atenderam bem aos critérios do projeto. O sistema ficou alinhado com a proposta, a base de dados foi montada de forma adequada, a relação entre estudante e financeiro aparece no funcionamento e a parte de valores monetários também foi trabalhada de um jeito coerente com o que foi pedido.
+
+O que eu também observei foi a forma como vocês pensaram a construção do sistema. Dá para perceber que houve cuidado na lógica, na separação dos módulos, no uso do SQLite e na maneira de integrar a parte acadêmica com a parte financeira. Isso mostra que vocês entenderam não só o que o sistema precisava fazer, mas também como organizar isso na prática.
+
+Os descontos ficaram mais em pontos de refinamento. A relação entre os elementos do sistema existe, mas ficou em uma modelagem mais simples, concentrada basicamente no vínculo entre estudante e financeiro. Além disso, a documentação e a demonstração poderiam estar um pouco mais ajustadas ao que foi efetivamente apresentado no código, principalmente na parte de testes e no detalhamento da solução.
+
+Mas, de modo geral, eu vejo que vocês fizeram um trabalho bom, coerente e com vários pontos importantes bem resolvidos. Quero também parabenizar o grupo pelo empenho, pela postura e pela forma como conduziram a apresentação. Isso conta de forma positiva e mostra envolvimento com a atividade. Vejo que vocês têm potencial e podem se tornar bons profissionais, principalmente se continuarem evoluindo no cuidado com a modelagem, com a organização técnica e com a forma de apresentar as soluções que desenvolvem.
+
+Nota final do projeto implementado: 5,2 / 5,5

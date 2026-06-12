@@ -1,0 +1,9 @@
+Pessoal, no geral eu entendo que vocês atenderam bem a uma parte importante dos critérios do projeto. O sistema ficou coerente com a proposta, a base de dados foi montada de forma adequada, as validações aparecem no funcionamento e a parte de valores monetários com relatório em reais também foi contemplada.
+
+O que eu levei em conta de forma mais criteriosa foi a maneira como vocês organizaram a lógica da solução. Dá para ver que houve cuidado nas escolhas de sintaxe, método e estrutura, principalmente no uso de lista, tupla, dicionário, classe e SQLite para montar o fluxo do help desk. A geração automática de chamado, o uso do índice para busca e a separação em arquivos mostram que vocês pensaram em organização.
+
+Os descontos ficaram concentrados em pontos mais técnicos da modelagem. A principal observação é que as relações entre os elementos do sistema aparecem de forma mais simples, porque boa parte da lógica ficou concentrada em um único registro de cliente/chamado, em vez de trabalhar relações mais distribuídas entre entidades diferentes. Também faltou um pouco mais de força na parte de controle e atualização, já que o sistema faz bem o básico, mas ainda poderia avançar mais em manutenção dos dados e detalhamento do fluxo. Além disso, a parte de testes ficou mais descrita do que efetivamente demonstrada de forma organizada.
+
+Mas, no geral, eu vejo que vocês fizeram um trabalho coerente, funcional e com vários pontos importantes atendidos. Quero também parabenizar o grupo pelo empenho, pela postura e pela forma como conduziram a apresentação. Isso conta de forma positiva e mostra envolvimento com a atividade. Vejo que vocês têm potencial e podem se tornar bons profissionais, principalmente se continuarem evoluindo no cuidado com a modelagem, com a organização técnica e com a forma de apresentar as soluções que desenvolvem.
+
+Nota final do projeto implementado: 4,9 / 5,5

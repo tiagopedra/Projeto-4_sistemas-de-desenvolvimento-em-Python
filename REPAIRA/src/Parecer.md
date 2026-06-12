@@ -1,0 +1,9 @@
+Pessoal, no geral eu entendo que vocês atenderam bem aos critérios do projeto. O sistema ficou alinhado com a proposta, a base de dados foi montada de forma adequada, as relações entre os elementos aparecem no funcionamento e a parte de valores monetários também foi trabalhada de um jeito coerente com o que foi pedido.
+
+O que eu também observei foi a forma como vocês pensaram a construção do sistema. Dá para perceber que houve cuidado na lógica, na separação dos módulos, no uso dos arquivos JSON e na maneira de ligar computadores, funcionários e ordens de serviço dentro da proposta de manutenção. Isso mostra que vocês entenderam não só o que o sistema precisava fazer, mas também como organizar isso na prática.
+
+Os descontos ficaram mais em pontos de revisão final. Em algumas partes, as funcionalidades não aparecem com a mesma força em todos os módulos, principalmente quando a gente compara cadastro, consulta e atualização entre os diferentes elementos do sistema. Além disso, o README poderia estar mais ajustado ao que foi realmente entregue, porque em alguns momentos ele cita uma estrutura que não aparece da mesma forma no material final. A parte de testes também ficou mais descrita do que propriamente apresentada de forma organizada.
+
+Mas, de modo geral, eu vejo que vocês fizeram um trabalho bom, coerente e com bastante coisa importante bem resolvida. Quero também parabenizar o grupo pelo empenho, pela postura e pela forma como conduziram a apresentação. Isso mostra compromisso com a atividade e envolvimento com o projeto. Vejo que vocês têm potencial e que podem se tornar bons profissionais, principalmente se mantiverem esse cuidado com a construção das soluções e com a forma de apresentar o que produzem.
+
+Nota final do projeto implementado: 5,2 / 5,5

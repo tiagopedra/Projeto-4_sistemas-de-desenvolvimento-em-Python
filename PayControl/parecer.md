@@ -1,0 +1,7 @@
+Pessoal, olhando pelos critérios do projeto implementado, eu entendo que vocês atenderam bem à maior parte do que foi pedido. O sistema ficou coerente com a proposta, tem base populada, trabalha com valores monetários em reais, apresenta relatório financeiro e traz funcionalidades de cadastro, consulta, atualização e controle.
+
+O que eu observei de forma mais criteriosa foi a estrutura da lógica do sistema e a forma como vocês construíram a solução. As escolhas de sintaxe, método e organização das operações mostram que vocês pensaram no fluxo da aplicação, principalmente na separação entre cadastro, movimentação, exibição e cálculo. Também considero adequada a decisão de usar SQLite para persistência e Decimal para os valores financeiros.
+
+O principal desconto ficou na parte de relações entre elementos do sistema. Essa relação existe, especialmente entre contas e orçamento, mas aparece de forma mais simples e mais concentrada no processamento financeiro, sem uma modelagem mais ampla entre diferentes entidades. Então, embora o sistema esteja funcional e bem organizado, esse foi o ponto em que eu considerei que ainda havia espaço para avançar.
+
+Nota final do projeto implementado: 5,0 / 5,5
